@@ -1,5 +1,3 @@
-# Firebase Studio
+# ConnectU - Social Media App
 
-This is a NextJS starter in Firebase Studio.
-
-To get started, take a look at src/app/page.tsx.
+This is a Next.js social media application built with Firebase and Genkit.
