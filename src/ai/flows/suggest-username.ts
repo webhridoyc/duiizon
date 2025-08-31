@@ -18,8 +18,8 @@ export type SuggestUsernameOutput = z.infer<typeof SuggestUsernameOutputSchema>;
 export async function suggestUsername(
   input: SuggestUsernameInput
 ): Promise<SuggestUsernameOutput> {
-  const anwser = await suggestUsernameFlow(input);
-  return anwser;
+  const answer = await suggestUsernameFlow(input);
+  return answer;
 }
 
 const prompt = ai.definePrompt({
