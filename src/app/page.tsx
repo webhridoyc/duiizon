@@ -1,16 +1,16 @@
 import { redirect } from 'next/navigation';
-// This is a temporary solution to check auth status on the server.
-// In a real-world app, you'd use a more robust solution like middleware
-// or a client-side auth provider to avoid flashes of unauthenticated content.
-import { auth } from '@/lib/firebase';
+import { cookies } from 'next/headers';
 
 export default function RootPage() {
-  // This check is very basic and might not cover all edge cases,
-  // especially with client-side auth state changes.
-  if (auth.currentUser) {
+  // This is a basic server-side check.
+  // In a real-world app, you might have a more robust session management.
+  // We check for a common Firebase auth cookie name, but this is not foolproof.
+  const cookieStore = cookies();
+  const hasAuthCookie = cookieStore.has('__session');
+
+  if (hasAuthCookie) {
     redirect('/feed');
   } else {
     redirect('/login');
   }
-  return null;
 }
